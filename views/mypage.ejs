@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-    <title>메인페이지</title>
+    <title>마이페이지</title>
   </head>
   <body>
     <%- include('nav.html') %>
@@ -18,7 +18,7 @@
         <button type="submit" class="btn btn-dark btn-sm" style="float: right;">로그아웃</button>
       </form>
       <form action="/list" method="POST">
-        <h4 class="text-center mb-4"><%= user.username %> 님의 수업기록장</h4>
+        <h4 class="text-center mb-4"><%= user.nickname %> 님의 수업기록장</h4>
       <label class="form-label mt-4">수업명</label>
       <select class="form-select form-select-sm" name="classname">
         <option selected>수업명</option>

@@ -65,11 +65,12 @@ app.get('/list', (req, res)=>{
 app.post('/list', (req, res)=>{
     console.log(req.body)
     const username = req.user[0].username
+    const name = req.user[0].name
     const classname = req.body.classname
     const classtime = req.body.classtime
     const classnote = req.body.classnote
-    db.query("INSERT INTO listdb (username, classname, classtime, classnote) VALUES (?,?,?,?)",
- [username, classname, classtime, classnote], (err, result)=>{
+    db.query("INSERT INTO listdb (username, name, classname, classtime, classnote) VALUES (?,?,?,?,?)",
+ [username, name, classname, classtime, classnote], (err, result)=>{
     if(err){console.log(err)}
     else{res.redirect('mypage')}
     })
@@ -112,9 +113,11 @@ app.get('/logout', (req, res)=>{
 app.post('/register', (req, res)=>{
     console.log(req.body)
     const username = req.body.username
+    const name = req.body.name
+    const nickname = req.body.nickname
     const password = req.body.password
-    db.query("INSERT INTO users (username, password) VALUES (?,?)",
-    [username, password], (err, result)=>{
+    db.query("INSERT INTO users (username, name, nickname, password) VALUES (?,?,?,?)",
+    [username, name, nickname, password], (err, result)=>{
         if(err){console.log(err)}
         else{res.redirect('/')}
     })

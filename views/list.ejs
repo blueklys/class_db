@@ -8,20 +8,20 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-    <title>메인페이지</title>
+    <title>수업기록리스트</title>
   </head>
   <body>
     <%- include('nav.html') %>
 
     <div class="container mt-4" style="max-width: 600px;">
-      <h4 class="text-center"><%= classlog[0].username %>님의 수업기록리스트</h4>
+      <h4 class="text-center"><%= classlog[0].name %>님의 수업기록리스트</h4>
         <ul class="list-group">
           <% for (var i = 0; i < classlog.length; i++){ %>
             <div class="card">
               <h5 class="card-header"><%= classlog[i].classname %> ( <%= classlog[i].classtime %> )</h5>
               <div class="card-body">
                 <p class="card-text">수업내용 : <%= classlog[i].classnote %></p>
-                <p class="card-text">작성자 : <%= classlog[i].username %></p>
+                <p class="card-text">작성자 : <%= classlog[i].name %></p>
                 <a href="/edit/<%= classlog[i].id %>" class="btn btn-primary">수정</a>
               </div>
             </div>
